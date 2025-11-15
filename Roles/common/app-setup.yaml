@@ -1,0 +1,28 @@
+---
+  - name: create application user
+    ansible.builtin.user:
+      name: roboshop
+      comment: " Roboshop Application User"
+      state: present
+      shell: /bin/bash
+      home: /app
+
+  - name: reomove app directory if exists
+    ansible.builtin.file:
+      path: /app
+      state: absent
+  
+  - name: create app directory
+    ansible.builtin.file:
+      path: /app
+      state: directory
+
+  - name: delete {{ component }} file
+    ansible.builtin.file:
+      path: /tmp/{{ component }}.zip
+      state: absent
+
+  - name: downaload application code
+    ansible.builtin.get_url:
+      url: "https://roboshop-artifacts.s3.amazonaws.com/{{ component }}.zip"
+      dest: /tmp/{{ component }}.zip
