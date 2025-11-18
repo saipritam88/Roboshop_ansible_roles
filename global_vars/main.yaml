@@ -1,0 +1,8 @@
+---
+  - RabbitMQ_HOST: rabbitmq.saikdevops.fun
+  - MONGODB_HOST: mongodb.saikdevops.fun  
+  - REDIS_HOST: redis.saikdevops.fun 
+  - Mysql_HOST: mysql.saikdevops.fun
+  - CATALOGUE_HOST: catalogue.saikdevops.fun
+  - Shipping_HOST: shipping.saikdevops.fun
+  - User_HOST: user.saikdevops.fun

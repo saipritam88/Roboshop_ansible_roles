@@ -9,10 +9,14 @@
       name: common
       tasks_from: app-setup.yaml
 
-  - name : system setup
-    ansible.builtin.import_role:
-      name: common
-      tasks_from: system-setup.yaml
+  - name: install mysql python dependencies
+    ansible.builtin.pip:
+      name: "{{ item }}"
+      executable: pip3.9
+      loop:
+        - PYMYSQL
+        - crytography
+      state: present
 
   - name : load shipping schema
     community.mysql.mysql_db:
@@ -27,8 +31,11 @@
         - /app/db/app-user.sql 
         - /app/db/master-data.sql
 
-  - name : app setup
+  - name : system setup
     ansible.builtin.import_role:
       name: common
+      tasks_from: system-setup.yaml
+
+  
 
   
