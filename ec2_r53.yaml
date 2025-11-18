@@ -7,7 +7,7 @@
     sg_id: "sg-04942374fe172ba17"
     zone_id: "Z0948150OFPSYTNVYZOY"
     domain_name: "saikdevops.fun"
-    instances:
+    #instances:
       # - mongodb
       # - mysql
       # - rabbitmq
