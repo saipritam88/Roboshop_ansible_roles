@@ -13,7 +13,6 @@
       
     
   - name: move the built file to app.jar
-    ansible.builtin.command:
-      cmd: mv target/{{ component }}-{{ version }}.jar {{ component }}.jar
-      args:
+    ansible.builtin.command: mv target/{{ component }}-{{ version }}.jar {{ component }}.jar
+    args:
       chdir: /app
