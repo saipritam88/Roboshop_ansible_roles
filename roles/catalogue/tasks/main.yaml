@@ -1,13 +1,13 @@
 --- 
 - name: create application user
-  import_role:
+  ansible.builtin.import_role:
     name: common
     tasks_from: app-setup.yaml
   tags: deployment
 
     
 - name: setup NodeJS
-  import_role:
+  ansible.builtin.import_role:
     name: common
     tasks_from: nodejs.yaml  
   tags: deployment
