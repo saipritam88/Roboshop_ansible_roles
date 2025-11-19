@@ -1,13 +1,13 @@
 ---
-- name: install Maven and Mysql 
-  ansible.builtin.import_role: 
-    name: common
-    tasks_from: java.yaml
-
 - name : app setup
   ansible.builtin.import_role:
     name: common
     tasks_from: app-setup.yaml
+
+- name: install Maven and Mysql 
+  ansible.builtin.import_role: 
+    name: common
+    tasks_from: java.yaml
 
 - name: install mysql python dependencies
   ansible.builtin.pip:
@@ -20,12 +20,12 @@
 
 - name : load shipping schema
   community.mysql.mysql_db:
-      name: shipping
-      state: import
-      target: /app/schema/shipping.sql
-      login_user: "{{ mysql_root_user }}"
-      login_password: "{{ mysql_root_password }}"
-      target: "{{item}}"
+    name: shipping
+    state: import
+    target: /app/schema/shipping.sql
+    login_user: "{{ mysql_root_user }}"
+    login_password: "{{ mysql_root_password }}"
+    target: "{{item}}"
   loop:
   - /app/db/schema.sql
   - /app/db/app-user.sql 
