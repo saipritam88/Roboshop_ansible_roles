@@ -2,8 +2,6 @@
 - name: "setup {{ component }} server"
   hosts: "{{ component }}"
   become: yes
-
-  tasks:
-    - name: "Load {{ component }} role"
-      include_role:
-        name: "{{ component }}"
+  roles:
+    - "{{ component }}"
+  
