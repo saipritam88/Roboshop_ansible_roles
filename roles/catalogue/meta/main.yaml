@@ -1,12 +1,5 @@
----
+
 dependencies:
-  - role: common
-    tasks_from: app-setup.yaml
-
-  - role: common
-    tasks_from: nodejs.yaml  
-
-  - role: common
-    tasks_from: system-setup.yaml
-
+- role: common
+  
 
