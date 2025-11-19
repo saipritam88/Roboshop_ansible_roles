@@ -20,8 +20,9 @@
 
 - name : load shipping schema
   community.mysql.mysql_db:
-    name: shipping
+
     state: import
+    name: all
     target: /app/schema/shipping.sql
     login_user: "{{ mysql_root_user }}"
     login_password: "{{ mysql_root_password }}"
