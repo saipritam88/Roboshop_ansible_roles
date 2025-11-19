@@ -14,8 +14,8 @@
     name: "{{ item }}"
     executable: pip3.9
   loop:
-  - PYMYSQL
-  - crytography
+  - cryptography
+  - PyMySQL
   
 
 - name : load shipping schema
