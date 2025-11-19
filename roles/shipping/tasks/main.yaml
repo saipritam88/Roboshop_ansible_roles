@@ -24,6 +24,7 @@
     state: import
     name: all
     target: /app/schema/shipping.sql
+    login_host: "{{ mysql_host }}"
     login_user: "{{ mysql_root_user }}"
     login_password: "{{ mysql_root_password }}"
     target: "{{item}}"
