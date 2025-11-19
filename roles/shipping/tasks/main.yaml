@@ -1,40 +1,40 @@
 ---
-  - name: install Maven and Mysql 
-    ansible.builtin.import_role: 
-      name: common
-      tasks_from: java.yaml
+- name: install Maven and Mysql 
+  ansible.builtin.import_role: 
+    name: common
+    tasks_from: java.yaml
 
-  - name : app setup
-    ansible.builtin.import_role:
-      name: common
-      tasks_from: app-setup.yaml
+- name : app setup
+  ansible.builtin.import_role:
+    name: common
+    tasks_from: app-setup.yaml
 
-  - name: install mysql python dependencies
-    ansible.builtin.pip:
-      name: "{{ item }}"
-      executable: pip3.9
-      loop:
-        - PYMYSQL
-        - crytography
-      state: present
+- name: install mysql python dependencies
+  ansible.builtin.pip:
+    name: "{{ item }}"
+    executable: pip3.9
+  loop:
+  - PYMYSQL
+  - crytography
+  
 
-  - name : load shipping schema
-    community.mysql.mysql_db:
+- name : load shipping schema
+  community.mysql.mysql_db:
       name: shipping
       state: import
       target: /app/schema/shipping.sql
       login_user: "{{ mysql_root_user }}"
       login_password: "{{ mysql_root_password }}"
       target: "{{item}}"
-      loop:
-        - /app/db/schema.sql
-        - /app/db/app-user.sql 
-        - /app/db/master-data.sql
+  loop:
+  - /app/db/schema.sql
+  - /app/db/app-user.sql 
+  - /app/db/master-data.sql
 
-  - name : system setup
-    ansible.builtin.import_role:
-      name: common
-      tasks_from: system-setup.yaml
+- name : system setup
+  ansible.builtin.import_role:
+    name: common
+    tasks_from: system-setup.yaml
 
   
 
