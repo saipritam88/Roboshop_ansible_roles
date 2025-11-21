@@ -15,4 +15,4 @@
     name: common
     tasks_from: system-setup.yaml
   notify: 
-    - daemon_reload
+  - daemon_reload
