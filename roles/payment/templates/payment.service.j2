@@ -11,8 +11,8 @@ Environment=USER_HOST=user.saikdevops.fun
 Environment=USER_PORT=8080
 Environment=AMQP_HOST=rabbitmq.saikdevops.fun
 // highlight-end
-Environment=AMQP_USER=RABBITMQ_USER
-Environment=AMQP_PASS=RABBITMQ_PASS
+Environment=AMQP_USER={{ RABBITMQ_USER }}
+Environment=AMQP_PASS={{ RABBITMQ_PASS }}
 
 ExecStart=/usr/local/bin/uwsgi --ini payment.ini
 ExecStop=/bin/kill -9 $MAINPID
