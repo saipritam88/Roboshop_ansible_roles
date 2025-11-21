@@ -7,7 +7,7 @@
     shell: /bin/bash
     home: /app
 
-- name: reomove app directory if exists
+- name: remove app directory if exists
   ansible.builtin.file:
     path: /app
     state: absent
